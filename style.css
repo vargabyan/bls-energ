@@ -180,14 +180,14 @@ table {
     filter: drop-shadow(2px 4px 6px black);
 }
 
-/*@-webkit-keyframes anim_dot {*/
-/*    from {*/
-/*        right: 5px;*/
-/*    }*/
-/*    to {*/
-/*        right: 55px;*/
-/*    }*/
-/*}*/
+@-webkit-keyframes anim_dot {
+    from {
+        right: 5px;
+    }
+    to {
+        right: 55px;
+    }
+}
 
 
 
