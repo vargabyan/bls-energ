@@ -27,7 +27,7 @@
                     <li><a href="#contacts">Контакты</a></li>
                 </ul>
             </nav>
-            <button class="header_btn-order-call">Заказать звонок</button>
+            <button class="header_btn-order-call" data-order-popup="order-a-call">Заказать звонок</button>
         </div>
     </div>
     <div class="header_contacts-btn-wrapper">
@@ -35,7 +35,7 @@
             <a href="tel:88005511013">8 800 55 11 013</a>
             <a href="mailto:info@energmedia.ru">info@energmedia.ru</a>
         </div>
-        <button class="header_btn-order-call">Заказать звонок</button>
+        <button class="header_btn-order-call" data-order-popup="order-a-call">Заказать звонок</button>
         <button class="header_menu-btn-open" data-header-btn-open-menu></button>
     </div>
 </header>

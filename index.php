@@ -39,11 +39,87 @@
                     <span>Системы фонового озвучивания</span>
                     <span>Механика для сцены</span>
                 </div>
-                <button class="projects_btn-detail btn-grey">Подробнее</button>
+                <button class="projects_btn-detail btn-grey" data-popup-products-open-button="">Подробнее</button>
             </div>
         <?php } ?>
     </div>
 </section>
+
+
+<section class="popup-products-wrapper" data-popup-products="">
+    <div class="popup-products">
+        <button class="popup-products_btn-close" data-popup-products-btn-close></button>
+        <div class="popup-products_content">
+            <h2 class="site-header">Креативный кластер «Домна»</h2>
+            <div class="popup-products_tags-wrapper">
+                <span>Спортивные объекты</span>
+                <span>Системы фонового озвучивания</span>
+                <span>Механика для сцены</span>
+            </div>
+            <div class="popup-products_text-wrapper">
+                <p>
+                    Обеспечение объекта качественным звуком с организацией 5 зон озвучивания, возможность передачи объявлений с ресепшен. Организации двух переговорных комнат с возможностью подключения к удаленным клиентам и проведения видеоконференций.
+                </p>
+                <p>
+                    Цель
+                    Обеспечение объекта качественным звуком с организацией 5 зон озвучивания, возможность передачи объявлений с ресепшен. Организации двух переговорных комнат с возможностью подключения к удаленным клиентам и проведения видеоконференций.
+                </p>
+                <p>
+                    Задачи
+                    Обеспечение объекта качественным звуком с организацией 5 зон озвучивания, возможность передачи объявлений с ресепшен. Организации двух переговорных комнат с возможностью подключения к удаленным клиентам и проведения видеоконференций.
+                </p>
+            </div>
+            <form action="" class="popup-products_form">
+                <h2 class="popup-products_header">
+                    Хочу так же
+                </h2>
+                <div class="popup-products_label-wrapper">
+                    <label class="popup-products_label">
+                        Ваше Имя *
+                        <input type="text" placeholder="Имя">
+                    </label>
+                    <label class="popup-products_label">
+                        Номер телефона *
+                        <input type="tel" placeholder="Телефон" pattern="[0-9]{12}">
+                    </label>
+                    <button type="submit" class="popup-products_btn-submit btn-blue">Заказать звонок</button>
+                </div>
+                <p class="popup-products_subtitle">
+                    Нажимая «Оставить заявку», я соглашаюсь с политикой обработки
+                    <a href="">персональных данных</a>
+                </p>
+            </form>
+        </div>
+        <div class="popup-products_slider-section">
+            <div class="popup-products_swiper" data-popup-products-swiper>
+                <div class="swiper-wrapper">
+                    <?php foreach ([1,2,3,4,5] as $item) { ?>
+                        <div class="swiper-slide">
+                            <div class="swiper-slide-item">
+                                <img src="/images/project-img-1.png" alt="image">
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+                <div class="swiper-pagination" data-popup-products-swiper-pagination></div>
+                <div class="popup-products_slider_btn-prev" data-popup-products-swiper-button-prev></div>
+                <div class="popup-products_slider_btn-next" data-popup-products-swiper-button-next></div>
+            </div>
+            <div class="popup-products_swiper" data-popup-products-gallery-swiper>
+                <div class="swiper-wrapper">
+                    <?php foreach ([1,2,3,4,5] as $item) { ?>
+                        <div class="swiper-slide">
+                            <div class="swiper-slide-item">
+                                <img src="/images/project-img-1.png" alt="image">
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
 
 
 <section class="services-and-product-wrapper">

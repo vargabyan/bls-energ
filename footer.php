@@ -22,7 +22,7 @@
         <div class="footer_others-wrapper">
             <a class="footer_policy" href="/policy.php">Политика конфиденциальности</a>
             <p class="footer_rights-reserved"><span>2021-2023</span> Все права защищены</p>
-            <button class="footer_btn-application-consultation">Заявка на консультацию</button>
+            <button class="footer_btn-application-consultation" data-order-popup="order-a-call">Заявка на консультацию</button>
         </div>
     </div>
     <span class="footer_made-in">Разработка и продвижение</span>
