@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="cf8893c1-5b58-4ff8-b4c5-e805f46cca05" name="bls-energ">
+        <fileTransfer rootFolder="/home/c84317/bls-energ.vm-9aa0b6b3.na4u.ru/www" accessType="SFTP" host="h47.netangels.ru" port="22" sshConfigId="bd360dd8-165d-4007-b845-70c1bfa2cd22" sshConfig="c84317@h47.netangels.ru:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
