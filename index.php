@@ -39,14 +39,14 @@
                     <span>Системы фонового озвучивания</span>
                     <span>Механика для сцены</span>
                 </div>
-                <button class="projects_btn-detail btn-grey" data-popup-products-open-button="">Подробнее</button>
+                <button class="projects_btn-detail btn-grey" data-popup-products-open-button="<?= $item ?>">Подробнее</button>
             </div>
         <?php } ?>
     </div>
 </section>
 
-
-<section class="popup-products-wrapper" data-popup-products="">
+<?php foreach ([1,2,3,4,5,6,7,8] as $item) { ?>
+<section class="popup-products-wrapper" data-popup-products="<?= $item ?>">
     <div class="popup-products">
         <button class="popup-products_btn-close" data-popup-products-btn-close></button>
         <div class="popup-products_content">
@@ -118,7 +118,8 @@
             </div>
         </div>
     </div>
-    </section>
+</section>
+<?php } ?>
 
 
 
@@ -145,7 +146,6 @@
                                     <a class="services_item_btn" href="">Подробнее</a>
                                 </div>
                                 <div class="services_item_img-wrapper">
-                                    <span class="services_item_img_triangle"></span>
                                     <img src="/images/services-image-1.png" alt="image">
                                 </div>
                             </div>
@@ -215,18 +215,20 @@
         <div class="slider-section we-have-slider-mobile">
             <div class="slider-section_swiper" data-we-have-swiper>
                 <div class="swiper-wrapper">
-                    <?php foreach ($response_data_new_we_have as $item) { ?>
+                    <?php $wi_hav_id = 0 ?>
+                    <?php foreach ($response_data_new_we_have as $key => $item) { ?>
 
                         <div class="swiper-slide">
                             <div class="we-have_slider_item">
                                 <?php foreach ($item as $in_item) { ?>
+                                <?php $wi_hav_id++ ?>
                                 <div class="we-have_item">
                                     <div class="we-have_item_img-wrapper">
                                         <img src="<?= $in_item['image'] ?>" alt="image">
                                     </div>
                                     <div class="we-have_item_content">
                                         <span class="we-have_item_title"><?= $in_item['title'] ?></span>
-                                        <a class="we-have_item_btn" href="">Подробнее</a>
+                                        <button class="we-have_item_btn" data-open-popup-we-have="<?= $wi_hav_id ?>">Подробнее</button>
                                     </div>
                                 </div>
                                 <?php } ?>
@@ -238,25 +240,53 @@
             </div>
         </div>
         <div class="we-have_items-wrapper">
-            <?php foreach ($response_data_we_have as $item) { ?>
+            <?php foreach ($response_data_we_have as $key => $item) { ?>
                 <div class="we-have_item">
                     <div class="we-have_item_img-wrapper">
                         <img src="<?= $item['image'] ?>" alt="image">
                     </div>
                     <div class="we-have_item_content">
                         <span class="we-have_item_title"><?= $item['title'] ?></span>
-                        <a class="we-have_item_btn" href="">Подробнее</a>
+                        <button  class="we-have_item_btn" data-open-popup-we-have="<?= $key ?>">Подробнее</button>
                     </div>
                 </div>
             <?php } ?>
             <div class="we-have_detail">
                 <span class="we-have_detail_title">Подберем оборудование</span>
                 <p class="we-have_detail_text">Которое отвечает вашим запросам и действительно нужно на вашем проекте</p>
-                <a class="we-have_detail_btn" href="">Подобрать</a>
+                <button class="we-have_detail_btn" data-order-popup="application-for-selection-of-equipment">Подобрать</button>
             </div>
         </div>
     </div>
 </section>
+
+
+<?php foreach ([1,2,3,4,5,6,7,8] as $key => $popup_) { ?>
+<section class="popup-wrapper" data-popup-wrapper data-popup-wrapper-we-have="<?= $key ?>">
+    <div class="popup-container popup-we-have" data-popup-container>
+        <button type="button" class="popup_btn-close" data-popup-btn-close>Закрыть</button>
+        <div class="popup-we-have_img-wrapper">
+            <img src="/images/we-have-image-2.png" alt="image">
+        </div>
+        <div class="popup-we-have_content-wrapper">
+            <span class="popup-we-have_header">проекторы</span>
+            <p>
+                Обеспечение объекта качественным звуком с организацией 5 зон озвучивания, возможность передачи объявлений с ресепшен. Организации двух переговорных комнат с возможностью подключения к удаленным клиентам и проведения видеоконференций.
+            </p>
+            <p>
+                Цель
+                Обеспечение объекта качественным звуком с организацией 5 зон озвучивания, возможность передачи объявлений с ресепшен. Организации двух переговорных комнат с возможностью подключения к удаленным клиентам и проведения видеоконференций.
+            </p>
+        </div>
+        <div class="popup-we-have_footer">
+            <img src="/images/popup-we-have-img-1.png" alt="img">
+            <?php foreach ([1,2,3,4] as $item) { ?>
+                <img src="/images/popup-we-have-img-2.png" alt="img">
+            <?php } ?>
+        </div>
+    </div>
+</section>
+<?php } ?>
 
 
 <?php

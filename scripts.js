@@ -30,33 +30,40 @@ new Swiper('[data-we-have-swiper]', {
 });
 
 
-const sliderGallery = new Swiper('[data-popup-products-gallery-swiper]', {
-    speed: 1000,
-    breakpoints: {
-        320: {
-            slidesPerView: 10,
-        },
-        1440: {
-            slidesPerView: 12,
-        },
-    }
-});
+document.addEventListener('DOMContentLoaded', () => {
+    const sliderBlock = document.querySelectorAll('[data-popup-products-swiper]');
 
-new Swiper('[data-popup-products-swiper]', {
-    spaceBetween: 20,
-    slidesPerView: 1,
-    speed: 1000,
-    pagination: {
-        el: '[data-popup-products-swiper-pagination]',
-    },
-    navigation: {
-        nextEl: '[data-popup-products-swiper-button-next]',
-        prevEl: '[data-popup-products-swiper-button-prev]',
-    },
-    thumbs: {
-        swiper: sliderGallery,
-    }
-});
+    sliderBlock.forEach((slider, index) => {
+
+        const sliderGallery = new Swiper(document.querySelectorAll('[data-popup-products-gallery-swiper]')[index], {
+            speed: 1000,
+            breakpoints: {
+                320: {
+                    slidesPerView: 10,
+                },
+                1440: {
+                    slidesPerView: 12,
+                },
+            }
+        });
+
+        new Swiper(document.querySelectorAll('[data-popup-products-swiper]')[index], {
+            spaceBetween: 20,
+            slidesPerView: 1,
+            speed: 1000,
+            pagination: {
+                el: document.querySelectorAll('[data-popup-products-swiper-pagination]')[index],
+            },
+            navigation: {
+                nextEl: document.querySelectorAll('[data-popup-products-swiper-button-next]')[index],
+                prevEl: document.querySelectorAll('[data-popup-products-swiper-button-prev]')[index],
+            },
+            thumbs: {
+                swiper: sliderGallery,
+            }
+        });
+    })
+})
 
 
 document.addEventListener('click', e => {
@@ -101,6 +108,19 @@ document.addEventListener('click', e => {
     }
 })
 document.addEventListener('click', e => {
+    const wrapper = e.target.closest('.active[data-popup-wrapper]');
+
+    if (wrapper) {
+        const container = wrapper.querySelector('.active[data-popup-container]');
+        const successContainer = wrapper.querySelector('.active[data-success-container]');
+
+        wrapper.classList.remove('active');
+        if (container) container.classList.remove('active');
+        if (successContainer) successContainer.classList.remove('active');
+        document.querySelector('body').style['overflow'] = '';
+    }
+})
+document.addEventListener('click', e => {
     const btn = e.target.closest('[data-popup-btn-submit]');
 
     if (btn) {
@@ -119,6 +139,21 @@ document.addEventListener('click', e => {
     if (btn) {
         const popupID = btn.getAttribute('data-order-popup');
         const wrapper = document.querySelector(`[data-popup-wrapper="${popupID}"]`);
+        const container = wrapper.querySelector('[data-popup-container]');
+
+        wrapper.classList.add('active');
+        container.classList.add('active');
+        document.querySelector('body').style['overflow'] = 'hidden';
+    }
+})
+
+
+document.addEventListener('click', e => {
+    const btn = e.target.closest('[data-open-popup-we-have]');
+
+    if (btn) {
+        const popupID = btn.getAttribute('data-open-popup-we-have');
+        const wrapper = document.querySelector(`[data-popup-wrapper-we-have="${popupID}"]`);
         const container = wrapper.querySelector('[data-popup-container]');
 
         wrapper.classList.add('active');

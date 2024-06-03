@@ -14,7 +14,7 @@
 <header class="core-container header" data-header>
     <div class="header_nav-menu-wrapper">
         <a class="header_logo-wrapper" href="/">
-            <img src="/images/logo.png" alt="logo">
+            <img src="/images/header-logo.png" alt="logo">
             <span>Поставка мультимедийного оборудования</span>
         </a>
         <div class="header_menu" data-header-menu>
