@@ -86,17 +86,19 @@
                 </div>
                 <p class="popup-products_subtitle">
                     Нажимая «Оставить заявку», я соглашаюсь с политикой обработки
-                    <a href="">персональных данных</a>
+                    <a href="/policy.php">персональных данных</a>
                 </p>
             </form>
         </div>
         <div class="popup-products_slider-section">
             <div class="popup-products_swiper" data-popup-products-swiper>
                 <div class="swiper-wrapper">
-                    <?php foreach ([1,2,3,4,5] as $item) { ?>
+                    <?php foreach ([1,2,3,4,5] as $item_slider) { ?>
                         <div class="swiper-slide">
                             <div class="swiper-slide-item">
-                                <img src="/images/project-img-1.png" alt="image">
+                                <a href="/images/project-img-1.png" data-fancybox="gallery-<?= $item ?>" data-caption="image">
+                                    <img src="/images/project-img-1.png" alt="image">
+                                </a>
                             </div>
                         </div>
                     <?php } ?>
@@ -107,7 +109,7 @@
             </div>
             <div class="popup-products_swiper" data-popup-products-gallery-swiper>
                 <div class="swiper-wrapper">
-                    <?php foreach ([1,2,3,4,5] as $item) { ?>
+                    <?php foreach ([1,2,3,4,5] as $item_galery_slider) { ?>
                         <div class="swiper-slide">
                             <div class="swiper-slide-item">
                                 <img src="/images/project-img-1.png" alt="image">
@@ -196,12 +198,6 @@
             'image' => '/images/we-have-image-8.png',
         ],
     ];
-    $response_data_new_we_have = [];
-    $i = 0;
-    while ($i < count($response_data_we_have)) {
-        array_push($response_data_new_we_have, [$response_data_we_have[$i], $response_data_we_have[$i + 1]]);
-        $i += 2;
-    }
     ?>
 
     <div class="core-container we-have">
@@ -215,26 +211,20 @@
         <div class="slider-section we-have-slider-mobile">
             <div class="slider-section_swiper" data-we-have-swiper>
                 <div class="swiper-wrapper">
-                    <?php $wi_hav_id = 0 ?>
-                    <?php foreach ($response_data_new_we_have as $key => $item) { ?>
-
+                    <?php foreach ($response_data_we_have as $key => $item) { ?>
                         <div class="swiper-slide">
                             <div class="we-have_slider_item">
-                                <?php foreach ($item as $in_item) { ?>
-                                <?php $wi_hav_id++ ?>
                                 <div class="we-have_item">
                                     <div class="we-have_item_img-wrapper">
-                                        <img src="<?= $in_item['image'] ?>" alt="image">
+                                        <img src="<?= $item['image'] ?>" alt="image">
                                     </div>
                                     <div class="we-have_item_content">
-                                        <span class="we-have_item_title"><?= $in_item['title'] ?></span>
-                                        <button class="we-have_item_btn" data-open-popup-we-have="<?= $wi_hav_id ?>">Подробнее</button>
+                                        <span class="we-have_item_title"><?= $item['title'] ?></span>
+                                        <button class="we-have_item_btn" data-open-popup-we-have="<?= $key ?>">Подробнее</button>
                                     </div>
                                 </div>
-                                <?php } ?>
                             </div>
                         </div>
-
                     <?php } ?>
                 </div>
             </div>

@@ -190,3 +190,51 @@ document.addEventListener('click', e => {
 })
 
 
+document.addEventListener('click', e => {
+    const btn = e.target.closest('[data-popup-video-btn-close]');
+
+    if (btn && !btn.classList.contains('active')) {
+        const wrapper = btn.closest('.active[data-popup-video-wrapper]');
+
+        wrapper.classList.remove('active');
+    }
+})
+
+document.addEventListener('click', e => {
+    const btn = e.target.closest('.active[data-popup-video-btn-close]');
+
+    if (btn) {
+            const wrapper = btn.closest('.active.full-screen[data-popup-video-wrapper]');
+            const video = wrapper.querySelector('.active[data-popup-video]');
+
+            wrapper.classList.remove('full-screen');
+            btn.classList.remove('active');
+            video.classList.remove('active');
+            document.querySelector('body').style['overflow'] = '';
+    }
+})
+
+document.addEventListener('click', e => {
+    const video = e.target.closest('[data-popup-video]');
+
+    if (video) {
+        const wrapper = video.closest('.active[data-popup-video-wrapper]');
+        const btn = wrapper.querySelector('[data-popup-video-btn-close]');
+
+        wrapper.classList.add('full-screen');
+        btn.classList.add('active');
+        video.classList.add('active');
+        document.querySelector('body').style['overflow'] = 'hidden';
+    }
+})
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const popupProductsSliderBlock = document.querySelectorAll('[data-popup-products]');
+
+    popupProductsSliderBlock.forEach((slider, index) => {
+        Fancybox.bind(`[data-fancybox="gallery-${index}"]`, {});
+    })
+})
+
+

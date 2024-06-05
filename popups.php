@@ -102,3 +102,10 @@
     </div>
 </section>
 
+
+<section class="popup-video-wrapper active" data-popup-video-wrapper>
+    <button class="popup-video_btn-close" data-popup-video-btn-close></button>
+    <div class="popup-video" data-popup-video>
+        <img class="video" src="/images/video-footer.png" alt="image">
+    </div>
+</section>
