@@ -370,7 +370,6 @@ $response_data_official_product_distributors = [
             </div>
         </div>
         <img class="about_img" src="/images/about-image-1.png" alt="image">
-        <img class="about_img-mobile" src="/images/about-image-2.png" alt="image">
         <div class="about_achievement">
             <div class="about_achievement_item">
                 <span>13 лет</span>
