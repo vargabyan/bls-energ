@@ -82,7 +82,7 @@
                         Номер телефона *
                         <input type="tel" placeholder="Телефон" pattern="[0-9]{12}">
                     </label>
-                    <button type="submit" class="popup-products_btn-submit btn-blue">Заказать звонок</button>
+                    <button type="submit" class="popup-products_btn-submit btn-blue">Оставить заявку</button>
                 </div>
                 <p class="popup-products_subtitle">
                     Нажимая «Оставить заявку», я соглашаюсь с политикой обработки
