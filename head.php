@@ -10,6 +10,7 @@
     <script src="fancybox.umd.js"></script>
     <link rel="stylesheet" href="fancybox.css"/>
     <title>BLS ENERG</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
 <body>
 
@@ -23,8 +24,8 @@
             <nav>
                 <ul>
                     <li><a href="#project">Проекты</a></li>
-                    <li><a href="#services">Услуги</a></li>
-                    <li><a href="#we-working">Этапы работ</a></li>
+<!--                    <li><a href="#services">Услуги</a></li>-->
+                    <li><a href="#we-working">Оборудование</a></li>
                     <li><a href="#about">О компании</a></li>
                     <li><a href="#contacts">Контакты</a></li>
                 </ul>
@@ -35,7 +36,7 @@
     <div class="header_contacts-btn-wrapper">
         <div class="header_contacts-wrapper">
             <a href="tel:88005511013">8 800 55 11 013</a>
-            <a href="mailto:info@energmedia.ru">info@energmedia.ru</a>
+            <a href="mailto:info@energ-m.ru">info@energ-m.ru</a>
         </div>
         <button class="header_btn-order-call" data-order-popup="order-a-call">Заказать звонок</button>
         <button class="header_menu-btn-open" data-header-btn-open-menu></button>

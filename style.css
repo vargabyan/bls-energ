@@ -10,8 +10,7 @@ del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
+fieldset, form, label, legend, caption,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
@@ -180,14 +179,14 @@ table {
     filter: drop-shadow(2px 4px 6px black);
 }
 
-@-webkit-keyframes anim_dot {
-    from {
-        right: 5px;
-    }
-    to {
-        right: 55px;
-    }
-}
+/*@-webkit-keyframes anim_dot {*/
+/*    from {*/
+/*        right: 5px;*/
+/*    }*/
+/*    to {*/
+/*        right: 55px;*/
+/*    }*/
+/*}*/
 
 
 
@@ -318,6 +317,7 @@ table {
 
 .our-works_item {
     display: flex;
+    width: 100%;
     flex-direction: column;
     gap: 8px;
 }
@@ -332,6 +332,8 @@ table {
 .our-works_item img {
     max-width: 650px;
     width: 100%;
+    max-height: 370px;
+    height: 100%;
     min-height: 214px;
     object-fit: cover;
     border-radius: 8px;
@@ -375,8 +377,9 @@ table {
 }
 
 .projects_item {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: max-content max-content max-content 1fr;
+    align-items: flex-end;
     gap: 24px;
     padding: 12px;
     border-radius: 12px;
@@ -387,7 +390,12 @@ table {
     background: #2B54C1;
 }
 
+.projects_item:hover .projects_tags span {
+    color: #fff;
+}
+
 .projects_img-wrapper {
+    max-height: 204px;
     position: relative;
     margin-top: -22px;
     margin-right: -22px;
@@ -446,6 +454,8 @@ table {
 
 .projects_btn-detail {
     width: 100%;
+    height: max-content;
+
 }
 
 
@@ -524,9 +534,9 @@ table {
     position: relative;
     max-width: 220px;
     width: 100%;
-    margin-top: -30px;
-    margin-right: -30px;
-    margin-bottom: -40px;
+    margin-top: -32px;
+    margin-right: -32px;
+    margin-bottom: -42px;
     overflow: hidden;
     clip-path: polygon( 99.556% 2.285%,99.019% 1.448%,97.945% 0.611%,96.514% 0.253%,95.441% 0.253%,3.844% 0.253%,2.233% 0.492%,1.339% 1.09%,0.713% 2.106%,0.444% 2.883%,0.444% 87.969%,0.889% 88.662%,1.556% 89.355%,2% 89.77%,19.778% 99.193%,20.889% 99.47%,22.667% 99.747%,96.336% 99.747%,97.409% 99.389%,98.303% 98.91%,99.198% 97.954%,99.556% 96.758%,99.556% 2.285% );
 }
@@ -565,6 +575,11 @@ table {
 }
 
 .services_item_btn {
+    width: max-content;
+    border: none;
+    padding: 0;
+    background-color: unset;
+    cursor: pointer;
     margin-top: 22px;
     display: flex;
     gap: 8px;
@@ -820,9 +835,40 @@ table {
 
 .official-product-distributors_content {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     column-gap: 10px;
     flex-wrap: wrap;
+}
+
+.official-product-distributors_item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-bottom: solid 1px #999999;
+}
+
+.official-product-distributors_item:nth-child(1),
+.official-product-distributors_item:nth-child(2),
+.official-product-distributors_item:nth-child(3),
+.official-product-distributors_item:nth-child(4) {
+    width: 23.5%;
+}
+
+.official-product-distributors_item:nth-child(5),
+.official-product-distributors_item:nth-child(6),
+.official-product-distributors_item:nth-child(7),
+.official-product-distributors_item:nth-child(8),
+.official-product-distributors_item:nth-child(9) {
+    width: 18.5%;
+}
+
+.official-product-distributors_item span {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    color: #999999;
+    font-size: 12px;
 }
 
 .official-product-distributors_img {
@@ -1326,6 +1372,7 @@ table {
     width: 107px;
     height: 91px;
     object-fit: cover;
+    filter: invert(0.5);
 }
 
 .footer_logo_title {
@@ -1668,6 +1715,8 @@ table {
 .popup-products {
     max-width: 1920px;
     width: 100%;
+    margin-right: auto;
+    margin-left: auto;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -1921,9 +1970,10 @@ table {
     object-fit: cover;
     max-width: 290px;
     max-height: 290px;
-    width: 120%;
-    right: 15px;
-    bottom: 15px;
+    top: -40px;
+    right: 0;
+    bottom: 0;
+    left: -40px;
     margin: auto;
 }
 
@@ -1957,7 +2007,20 @@ table {
     object-fit: cover;
     max-width: 124px;
     width: 100%;
-    height: 100%;
+    filter: invert(1);
+}
+
+
+.popup-services {
+    max-width: 1296px;
+}
+
+.services-popup-item {
+    display: flex;
+}
+
+.popup-services .services_item_img-wrapper {
+    max-width: 526px;
 }
 
 
@@ -2008,8 +2071,19 @@ table {
     line-height: 140%;
 }
 
+.policy_text-wrapper tr,
+.policy_text-wrapper td {
+    padding: 20px;
+    border: solid 1px #fff;
+}
+
 .policy_text-wrapper p {
     margin-top: 6px;
+}
+
+.policy_text-wrapper a {
+    text-decoration: none;
+    color: unset;
 }
 
 .policy_subtitle {
@@ -2020,11 +2094,9 @@ table {
 
 .popup-video-wrapper {
     display: none;
-    max-width: 105px;
-    max-height: 186px;
     position: fixed;
     z-index: 9;
-    bottom: 40px;
+    bottom: 20px;
     left: 20px;
 }
 
@@ -2056,6 +2128,8 @@ table {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.20);
     top: -30px;
+    z-index: 9;
+    filter: contrast(0.5);
 }
 
 .popup-video_btn-close:after {
@@ -2092,11 +2166,19 @@ table {
     align-items: center;
 }
 
-.popup-video img {
-    max-width: 600px;
+.popup-video video {
+    max-height: 186px;
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.popup-video.active video {
+    max-height: 100%;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 
@@ -2191,6 +2273,12 @@ table {
     }
 
 
+    .official-product-distributors_item {
+        max-width: 32.5% !important;
+        width: 100% !important;
+    }
+
+
     .footer_others-wrapper {
         display: flex;
         flex-wrap: wrap;
@@ -2256,8 +2344,12 @@ table {
     }
 
 
-    .official-product-distributors_img {
-        width: 48%;
+    .official-product-distributors_content {
+        justify-content: space-around;
+    }
+
+    .official-product-distributors_item {
+        max-width: 48% !important;
     }
 
 
@@ -2354,7 +2446,13 @@ table {
 
 
 
+}
 
+@media (max-width: 740px) {
+
+    .projects_img-wrapper {
+        max-height: 350px;
+    }
 }
 
 @media (max-width: 570px) {
@@ -2551,7 +2649,7 @@ table {
     .services_item_img-wrapper {
         max-width: 100%;
         margin-top: -30px;
-        margin-right: 0;
+        right: -2px;
         padding-left: 26px;
         margin-bottom: 0;
         clip-path: polygon( 0.455% 91.287%,0.279% 9.045%,0.836% 6.281%,1.532% 4.271%,2.507% 2.513%,3.621% 1.256%,4.875% 0.503%,94.568% 0.503%,95.404% 0.754%,96.797% 2.01%,98.329% 4.271%,99.164% 6.533%,99.721% 9.627%,99.721% 77.136%,99.582% 79.146%,98.747% 81.658%,97.632% 83.417%,95.404% 85.93%,82.451% 98.995%,81.755% 99.497%,80.919% 99.749%,5.153% 99.497%,3.9% 98.744%,2.743% 97.236%,1.532% 95.226%,0.836% 93.467%,0.455% 91.287% );
@@ -3079,8 +3177,6 @@ table {
 
 
     .popup-video-wrapper {
-        max-width: 78px;
-        max-height: 140px;
         bottom: 8px;
         left: 10px;
     }
@@ -3094,10 +3190,10 @@ table {
         padding-left: 0;
     }
 
-    .popup-video img {
-        max-width: 600px;
+    .popup-video video {
+        max-width: 187px;
         width: 100%;
-        height: 100%;
+        height: 162px;
         object-fit: cover;
     }
 

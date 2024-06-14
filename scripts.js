@@ -164,6 +164,21 @@ document.addEventListener('click', e => {
 
 
 document.addEventListener('click', e => {
+    const btn = e.target.closest('[data-open-popup-services]');
+
+    if (btn) {
+        const popupID = btn.getAttribute('data-open-popup-services');
+        const wrapper = document.querySelector(`[data-popup-wrapper-services="${popupID}"]`);
+        const container = wrapper.querySelector('[data-popup-container]');
+
+        wrapper.classList.add('active');
+        container.classList.add('active');
+        document.querySelector('body').style['overflow'] = 'hidden';
+    }
+})
+
+
+document.addEventListener('click', e => {
     const btn = e.target.closest('[data-popup-products-btn-close]');
 
     if (btn) {
@@ -204,20 +219,22 @@ document.addEventListener('click', e => {
     const btn = e.target.closest('.active[data-popup-video-btn-close]');
 
     if (btn) {
-            const wrapper = btn.closest('.active.full-screen[data-popup-video-wrapper]');
-            const video = wrapper.querySelector('.active[data-popup-video]');
+        const wrapper = btn.closest('.active.full-screen[data-popup-video-wrapper]');
+        const video = wrapper.querySelector('.active[data-popup-video]');
 
-            wrapper.classList.remove('full-screen');
-            btn.classList.remove('active');
-            video.classList.remove('active');
-            document.querySelector('body').style['overflow'] = '';
+        wrapper.classList.remove('full-screen');
+        btn.classList.remove('active');
+        video.classList.remove('active');
+        document.querySelector('body').style['overflow'] = '';
     }
 })
 
-document.addEventListener('click', e => {
-    const video = e.target.closest('[data-popup-video]');
+const videoOpenAction = e => {
+    const frame = e.target.closest('[data-popup-video] iframe');
 
-    if (video) {
+    if (frame) {
+        console.log('+++')
+        const video = e.target.closest('[data-popup-video]');
         const wrapper = video.closest('.active[data-popup-video-wrapper]');
         const btn = wrapper.querySelector('[data-popup-video-btn-close]');
 
@@ -226,7 +243,9 @@ document.addEventListener('click', e => {
         video.classList.add('active');
         document.querySelector('body').style['overflow'] = 'hidden';
     }
-})
+}
+document.addEventListener('click', e => videoOpenAction(e))
+document.addEventListener('touchend', e => videoOpenAction(e))
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -236,5 +255,10 @@ document.addEventListener('DOMContentLoaded', () => {
         Fancybox.bind(`[data-fancybox="gallery-${index}"]`, {});
     })
 })
+
+
+// document.querySelector('[data-video]').onload = e => {
+//     console.log('+++', e)
+// }
 
 

@@ -12,8 +12,8 @@
             <nav class="footer_nav">
                 <ul>
                     <li><a href="#project">Проекты</a></li>
-                    <li><a href="#services">Услуги</a></li>
-                    <li><a href="#we-working">Этапы работ</a></li>
+<!--                    <li><a href="#services">Услуги</a></li>-->
+                    <li><a href="#we-working">Оборудование</a></li>
                     <li><a href="#about">О компании</a></li>
                     <li><a href="#contacts">Контакты</a></li>
                 </ul>
@@ -25,7 +25,7 @@
             <button class="footer_btn-application-consultation" data-order-popup="order-a-call">Заявка на консультацию</button>
         </div>
     </div>
-    <span class="footer_made-in">Разработка и продвижение</span>
+<!--    <span class="footer_made-in">Разработка и продвижение</span>-->
 </footer>
 
 <?php require 'popups.php' ?>
