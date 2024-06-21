@@ -229,24 +229,6 @@ document.addEventListener('click', e => {
     }
 })
 
-const videoOpenAction = e => {
-    const frame = e.target.closest('[data-popup-video] iframe');
-
-    if (frame) {
-        console.log('+++')
-        const video = e.target.closest('[data-popup-video]');
-        const wrapper = video.closest('.active[data-popup-video-wrapper]');
-        const btn = wrapper.querySelector('[data-popup-video-btn-close]');
-
-        wrapper.classList.add('full-screen');
-        btn.classList.add('active');
-        video.classList.add('active');
-        document.querySelector('body').style['overflow'] = 'hidden';
-    }
-}
-document.addEventListener('click', e => videoOpenAction(e))
-document.addEventListener('touchend', e => videoOpenAction(e))
-
 
 document.addEventListener('DOMContentLoaded', () => {
     const popupProductsSliderBlock = document.querySelectorAll('[data-popup-products]');
@@ -257,8 +239,38 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
-// document.querySelector('[data-video]').onload = e => {
-//     console.log('+++', e)
-// }
+//  youtube vide start
+const tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+const firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+function onYouTubeIframeAPIReady() {
+    const player = new YT.Player('player', { // 'play
+        videoId: 'HS4NomdUwTQ',
+        events: {
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
+
+function onPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.PLAYING) {
+        // Видео начало воспроизводиться
+    } else if (event.data === YT.PlayerState.PAUSED) {
+        // Видео приостановлено
+    }
+
+    console.log('+++')
+    const video = document.querySelector('[data-popup-video]');
+    const wrapper = video.closest('.active[data-popup-video-wrapper]');
+    const btn = wrapper.querySelector('[data-popup-video-btn-close]');
+
+    wrapper.classList.add('full-screen');
+    btn.classList.add('active');
+    video.classList.add('active');
+    document.querySelector('body').style['overflow'] = 'hidden';
+}
+//  youtube vide end
 
 

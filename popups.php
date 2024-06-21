@@ -103,13 +103,9 @@
 </section>
 
 
-<!--<section class="popup-video-wrapper active" data-popup-video-wrapper>-->
-<!--    <button class="popup-video_btn-close" data-popup-video-btn-close></button>-->
-<!--    <div class="popup-video" data-popup-video>-->
-<!--        <video class="video" controls>-->
-<!--            <source src="/video/copy_5C6C80F7-33C0-41DE-927D-0F5ECF4EFF97.mov" type="video/mp4">-->
-<!--            <source src="/video/copy_5C6C80F7-33C0-41DE-927D-0F5ECF4EFF97.mov" type="video/ogg">-->
-<!--        </video>-->
-<!--        <iframe data-video class="video" width="100%" height="100%" src="https://www.youtube.com/embed/cO_R1sjVOr0" title="Любые задачи с ENERG MEDIA | ПРОЕКТИРОВАНИЕ • ОБОРУДОВАНИЕ • МОНТАЖ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>-->
-<!--    </div>-->
-<!--</section>-->
+<section class="popup-video-wrapper active" data-popup-video-wrapper>
+    <button class="popup-video_btn-close" data-popup-video-btn-close></button>
+    <div class="popup-video" data-popup-video>
+        <div id="player" class="video"></div>
+    </div>
+</section>
