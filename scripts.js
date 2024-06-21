@@ -211,7 +211,7 @@ document.addEventListener('click', e => {
     if (btn && !btn.classList.contains('active')) {
         const wrapper = btn.closest('.active[data-popup-video-wrapper]');
 
-        wrapper.classList.remove('active');
+        wrapper.remove();
     }
 })
 
