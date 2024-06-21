@@ -220,12 +220,29 @@ document.addEventListener('click', e => {
 
     if (btn) {
         const wrapper = btn.closest('.active.full-screen[data-popup-video-wrapper]');
+        const btnFullscreen = wrapper.querySelector('[data-vide-btn-fullscreen]');
         const video = wrapper.querySelector('.active[data-popup-video]');
 
         wrapper.classList.remove('full-screen');
         btn.classList.remove('active');
+        btnFullscreen.classList.add('active');
         video.classList.remove('active');
         document.querySelector('body').style['overflow'] = '';
+    }
+})
+document.addEventListener('click', e => {
+    const btn = e.target.closest('.active[data-vide-btn-fullscreen]');
+
+    if (btn) {
+        const wrapper = btn.closest('[data-popup-video-wrapper]');
+        const btnClose = wrapper.querySelector('[data-popup-video-btn-close]');
+        const video = wrapper.querySelector('[data-popup-video]');
+
+        wrapper.classList.add('full-screen');
+        btnClose.classList.add('active');
+        video.classList.add('active');
+        document.querySelector('body').style['overflow'] = 'hidden';
+        btn.classList.remove('active');
     }
 })
 
@@ -248,29 +265,21 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 function onYouTubeIframeAPIReady() {
     const player = new YT.Player('player', { // 'play
         videoId: 'HS4NomdUwTQ',
+        playerVars: {
+            'controls': 1,
+            'autoplay': 1,
+            'mute': 1,
+        },
         events: {
-            'onStateChange': onPlayerStateChange
+            'onReady': onPlayerReady,
         }
     });
 }
 
-function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.PLAYING) {
-        // Видео начало воспроизводиться
-    } else if (event.data === YT.PlayerState.PAUSED) {
-        // Видео приостановлено
-    }
-
-    console.log('+++')
-    const video = document.querySelector('[data-popup-video]');
-    const wrapper = video.closest('.active[data-popup-video-wrapper]');
-    const btn = wrapper.querySelector('[data-popup-video-btn-close]');
-
-    wrapper.classList.add('full-screen');
-    btn.classList.add('active');
-    video.classList.add('active');
-    document.querySelector('body').style['overflow'] = 'hidden';
+function onPlayerReady(event) {
+    event.target.playVideo();
 }
+
 //  youtube vide end
 
 

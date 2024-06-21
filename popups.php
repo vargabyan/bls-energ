@@ -106,6 +106,7 @@
 <section class="popup-video-wrapper active" data-popup-video-wrapper>
     <button class="popup-video_btn-close" data-popup-video-btn-close></button>
     <div class="popup-video" data-popup-video>
+        <span class="popup-video_btn-fullscreen active" data-vide-btn-fullscreen></span>
         <div id="player" class="video"></div>
     </div>
 </section>
