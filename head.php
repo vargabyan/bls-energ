@@ -15,19 +15,28 @@
 <body>
 
 <header class="core-container header" data-header>
-    <div class="header_nav-menu-wrapper">
+    <div class="header_logo-and-city-wrapper">
         <a class="header_logo-wrapper" href="/">
             <img src="/images/header-logo.png" alt="logo">
             <span>Поставка мультимедийного оборудования</span>
         </a>
+        <div class="select-city-wrapper" data-btn-select-city-btn>
+            <span class="select-city" data-btn-select-city-value>Екатеринбург</span>
+        </div>
+    </div>
+    <div class="header_nav-menu-wrapper">
         <div class="header_menu" data-header-menu>
+            <div class="mobile_select-city-wrapper" data-btn-select-city-btn>
+                <span class="select-city" data-btn-select-city-value>Екатеринбург</span>
+                Изменить
+            </div>
             <nav>
                 <ul>
-                    <li><a href="#project">Проекты</a></li>
-<!--                    <li><a href="#services">Услуги</a></li>-->
-                    <li><a href="#we-working">Оборудование</a></li>
-                    <li><a href="#about">О компании</a></li>
-                    <li><a href="#contacts">Контакты</a></li>
+                    <li><a href="/projects.php">Проекты</a></li>
+                    <li><a href="/services.php">Услуги</a></li>
+<!--                    <li><a href="#we-working">Оборудование</a></li>-->
+                    <li><a href="/about.php">О компании</a></li>
+                    <li><a href="/contacts.php">Контакты</a></li>
                 </ul>
             </nav>
             <button class="header_btn-order-call" data-order-popup="order-a-call">Заказать звонок</button>

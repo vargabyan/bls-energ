@@ -247,34 +247,33 @@ Native Instruments. Работа с видео контентом произво
 ?>
 
 <section class="core-container projects">
-    <div class="projects_head">
         <span class="site-block-title">Кейсы</span>
         <div class="projects_header-wrapper">
             <h2 class="site-header" id="project">проекты</h2>
             <p class="projects_description">
                 Мы спроектировали и установили передовое мультимедийное оборудование для ведущих компаний в сфере развлечений, банковскоми финансовом секторе, а также в производственной сфере.
             </p>
-        </div>
-    </div>
-    <div class="projects_items-wrapper">
-        <?php foreach ($response_data_projects as $key => $item) { ?>
-            <div class="projects_item">
-                <div class="projects_img-wrapper">
-                    <img src="<?= $item['images'][0] ?>" alt="image">
-                    <?php if ($item['quantity']) { ?>
-                        <span><?= $item['quantity'] ?> проекта</span>
-                    <?php } ?>
-                </div>
-                <p class="projects_title"><?= $item['title'] ?></p>
-                <div class="projects_tags">
-                    <?php foreach ($item['tags'] as $item_tag) { ?>
-                        <span><?= $item_tag ?></span>
-                    <?php } ?>
-                </div>
-                <button class="projects_btn-detail btn-grey" data-popup-products-open-button="<?= $key ?>">Подробнее</button>
+            <div class="projects_items-wrapper">
+                <?php foreach ($response_data_projects as $key => $item) { ?>
+                    <div class="projects_item">
+                        <div class="projects_img-wrapper">
+                            <img src="<?= $item['images'][0] ?>" alt="image">
+                            <?php if ($item['quantity']) { ?>
+                                <span><?= $item['quantity'] ?> проекта</span>
+                            <?php } ?>
+                        </div>
+                        <p class="projects_title"><?= $item['title'] ?></p>
+                        <div class="projects_tags">
+                            <?php foreach ($item['tags'] as $item_tag) { ?>
+                                <span><?= $item_tag ?></span>
+                            <?php } ?>
+                        </div>
+                        <button class="projects_btn-detail btn-grey" data-popup-products-open-button="<?= $key ?>">Подробнее</button>
+                    </div>
+                <?php } ?>
             </div>
-        <?php } ?>
-    </div>
+            <a class="project_btn-show-more" href="">Смотреть все проекты</a>
+        </div>
 </section>
 
 <?php foreach ($response_data_projects as $key => $item) { ?>
@@ -358,45 +357,65 @@ $Response_data_services = [
             'Цель <br> Обеспечение объекта качественным звуком с организацией 5 зон озвучивания, возможность передачи объявлений с ресепшен. Организации двух переговорных комнат с возможностью подключения к удаленным клиентам и проведения видеоконференций.',
             'Задачи <br> Обеспечение объекта качественным звуком с организацией 5 зон озвучивания, возможность передачи объявлений с ресепшен. Организации двух переговорных комнат с возможностью подключения к удаленным клиентам и проведения видеоконференций.',
         ],
-    ]
+    ],
+    [
+        'title' => 'Оснащение конференц-зала ',
+        'image' => '/images/services-image-1.png',
+        'text' => [
+            'Обеспечение объекта качественным звуком с организацией 5 зон озвучивания, возможность передачи объявлений с ресепшен. Организации двух переговорных комнат с возможностью подключения к удаленным клиентам и проведения видеоконференций.',
+            'Цель <br> Обеспечение объекта качественным звуком с организацией 5 зон озвучивания, возможность передачи объявлений с ресепшен. Организации двух переговорных комнат с возможностью подключения к удаленным клиентам и проведения видеоконференций.',
+            'Задачи <br> Обеспечение объекта качественным звуком с организацией 5 зон озвучивания, возможность передачи объявлений с ресепшен. Организации двух переговорных комнат с возможностью подключения к удаленным клиентам и проведения видеоконференций.',
+        ],
+    ],
+    [
+        'title' => 'Оснащение конференц-зала ',
+        'image' => '/images/services-image-1.png',
+        'text' => [
+            'Обеспечение объекта качественным звуком с организацией 5 зон озвучивания, возможность передачи объявлений с ресепшен. Организации двух переговорных комнат с возможностью подключения к удаленным клиентам и проведения видеоконференций.',
+            'Цель <br> Обеспечение объекта качественным звуком с организацией 5 зон озвучивания, возможность передачи объявлений с ресепшен. Организации двух переговорных комнат с возможностью подключения к удаленным клиентам и проведения видеоконференций.',
+            'Задачи <br> Обеспечение объекта качественным звуком с организацией 5 зон озвучивания, возможность передачи объявлений с ресепшен. Организации двух переговорных комнат с возможностью подключения к удаленным клиентам и проведения видеоконференций.',
+        ],
+    ],
 ]
 ?>
 
 <section class="services-and-product-wrapper">
-<!--    <div class="core-container services">-->
-<!--        <div class="services-and-product_head">-->
-<!--            <span class="site-block-title" id="services">Услуги</span>-->
-<!--            <div class="services-and-product_header-wrapper">-->
-<!--                <h2 class="services-and-product_header site-header">услуги</h2>-->
-<!--                <span class="animation_dot"></span>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="slider-section">-->
-<!--            <div class="slider-section_swiper" data-services-swiper>-->
-<!--                <div class="swiper-wrapper">-->
-<!--                    --><?php //foreach ($Response_data_services as $key => $item) { ?>
-<!--                        <div class="swiper-slide">-->
-<!--                            <div class="services_item">-->
-<!--                                <div class="services_item_content">-->
-<!--                                    <span class="services_item_title">--><?php //= $item['title'] ?><!--</span>-->
-<!--                                    <p class="services_item_description">--><?php //= $item['text'][0] ?><!--</p>-->
-<!--                                    <button class="services_item_btn" data-open-popup-services="--><?php //= $key ?><!--">Подробнее</button>-->
-<!--                                </div>-->
-<!--                                <div class="services_item_img-wrapper">-->
-<!--                                    <img src="--><?php //= $item['image'] ?><!--" alt="image">-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    --><?php //} ?>
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="slider-section_btn-wrapper">-->
-<!--                <div class="slider-section_btn-prev" data-services-swiper-button-prev></div>-->
-<!--                <div class="slider-section_btn-next" data-services-swiper-button-next></div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!---->
+    <div class="core-container services">
+        <div class="services-and-product_head">
+            <span class="site-block-title" id="services">Услуги</span>
+            <div class="services-and-product_header-wrapper">
+                <h2 class="services-and-product_header site-header">услуги</h2>
+                <span class="animation_dot"></span>
+                <div class="slider-section_btn-wrapper">
+                    <div class="slider-section_btn-prev" data-services-swiper-button-prev></div>
+                    <div class="slider-section_btn-next" data-services-swiper-button-next></div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-section">
+            <div class="slider-section_swiper" data-services-swiper>
+                <div class="swiper-wrapper">
+                    <?php foreach ($Response_data_services as $key => $item) { ?>
+                        <div class="swiper-slide">
+                            <a class="services_item" href="/service.php">
+                                <div class="services_item_content">
+                                    <span class="services_item_title"><?= $item['title'] ?></span>
+                                    <p class="services_item_description"><?= $item['text'][0] ?></p>
+                                    <button class="services_item_btn" data-open-popup-services="<?= $key ?>">Подробнее</button>
+                                </div>
+                                <div class="services_item_img-wrapper">
+                                    <img src="<?= $item['image'] ?>" alt="image">
+                                </div>
+                            </a>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="swiper-pagination" data-services-swipe-pagination></div>
+        </div>
+        <a class="services-and-product-wrapper_btn-show-more" href="/services.php">Смотреть все Услуги</a>
+    </div>
+
 <!--    --><?php //foreach ($Response_data_services as $key => $item) { ?>
 <!--        <section class="popup-wrapper" data-popup-wrapper data-popup-wrapper-services="--><?php //= $key ?><!--">-->
 <!--            <div class="popup-container core-container popup-services" data-popup-container>-->
@@ -658,14 +677,17 @@ $response_data_official_product_distributors = [
 ?>
 
 <section class="core-container official-product-distributors">
-    <h2 class="official-product-distributors_header site-header">Официальные представители продукции</h2>
+    <span class="site-block-title">Продукция</span>
     <div class="official-product-distributors_content">
-        <?php foreach ($response_data_official_product_distributors as $key => $item) { ?>
-            <div class="official-product-distributors_item">
-                <span>0<?= $key ?></span>
-                <img class="official-product-distributors_img" src="<?= $item ?>" alt="image">
-            </div>
-        <?php } ?>
+        <h2 class="official-product-distributors_header site-header">Официальные представители продукции</h2>
+        <div class="official-product-distributors_items">
+            <?php foreach ($response_data_official_product_distributors as $key => $item) { ?>
+                <div class="official-product-distributors_item">
+                    <span>0<?= $key ?></span>
+                    <img class="official-product-distributors_img" src="<?= $item ?>" alt="image">
+                </div>
+            <?php } ?>
+        </div>
     </div>
 </section>
 
@@ -761,22 +783,22 @@ $response_data_official_product_distributors = [
 </section>
 
 
-<section class="application-consultation">
-    <section class="core-container application-consultation_container">
-        <h2 class="application-consultation_header site-header">Заявка на консультацию</h2>
-        <div class="application-consultation_content">
-            <span class="application-consultation_subtitle">Наши специалисты проконсультируют вас по интересующему вопросу</span>
-            <ul class="application-consultation_messengers">
-                <li><a href="https://t.me/+79321178117">Написать в Telegram</a></li>
-                <li><a href="https://wa.me/+79321178117">Написать в Whatsapp</a></li>
-            </ul>
-            <form class="application-consultation_form" action="">
-                <label class="application-consultation_label">Ваше Имя *<input type="text" placeholder="Имя"></label>
-                <label class="application-consultation_label">Номер телефона *<input type="tel" placeholder="+7 (999) 999-99-99"></label>
-                <button class="application-consultation_btn-submit btn-blue" type="submit">Оставить заявку</button>
-            </form>
+<section class="core-container application-consultation">
+    <div class="application-consultation_container">
+        <div class="application-consultation_header-wrapper">
+            <h2 class="application-consultation_header site-header">Заявка на консультацию</h2>
+            <span class="application-consultation_subtitle">Наши специалисты проконсультируют вас <br> по интересующему вопросу</span>
         </div>
-    </section>
+        <ul class="application-consultation_messengers">
+            <li><a href="https://t.me/+79321178117">Написать в Telegram</a></li>
+            <li><a href="https://wa.me/+79321178117">Написать в Whatsapp</a></li>
+        </ul>
+        <form class="application-consultation_form" action="">
+            <label class="application-consultation_label">Ваше Имя *<input type="text" placeholder="Имя"></label>
+            <label class="application-consultation_label">Номер телефона *<input type="tel" placeholder="+7 (999) 999-99-99"></label>
+            <button class="application-consultation_btn-submit btn-blue" type="submit">Оставить заявку</button>
+        </form>
+    </div>
 </section>
 
 
@@ -791,7 +813,7 @@ $response_data_official_product_distributors = [
             </div>
             <a class="contacts_mail" href="mailto:info@energ-m.ru">info@energ-m.ru</a>
             <p class="contacts_address">
-<!--                <span>Юридический и фактический адрес</span>-->
+                <span>Юридический и фактический адрес</span>
                 Екатеринбург, Малышева 51, <br> БЦ Высоцкий
             </p>
         </div>
@@ -805,6 +827,27 @@ $response_data_official_product_distributors = [
                 <li><span>КПП</span>668501001</li>
             </ul>
             <a class="contacts_card_btn-download btn-invisible" href="">Скачать карточку</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="core-container faq">
+    <span class="site-block-title" id="faq">Вопрос ответ</span>
+    <div class="faq_content">
+        <h2 class="feq_header site-header">FAQ</h2>
+        <div class="collapse_items-wrapper" data-collapse-items-wrapper>
+            <?php foreach ([1, 2, 3, 4, 5] as $item) { ?>
+                <div class="collapse_item" data-collapse-item>
+                    <div class="collapse_item_question" data-collapse-item-question>
+                        Вопрос клиента, вопрос клиента, вопрос клиента?
+                    </div>
+                    <div class="collapse_item_answer" data-collapse-item-answer>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis consectetur dolore eveniet ex
+                        incidunt maiores molestias omnis possimus quaerat qui!
+                    </div>
+                </div>
+            <?php } ?>
         </div>
     </div>
 </section>

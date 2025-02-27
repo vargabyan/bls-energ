@@ -5,6 +5,9 @@ new Swiper('[data-services-swiper]', {
         nextEl: '[data-services-swiper-button-next]',
         prevEl: '[data-services-swiper-button-prev]',
     },
+    pagination: {
+        el: '[data-services-swipe-pagination]',
+    },
     breakpoints: {
         320: {
             slidesPerView: 1.07,
@@ -283,3 +286,68 @@ function onPlayerReady(event) {
 //  youtube vide end
 
 
+document.addEventListener('click', e => {
+    const btn = e.target.closest('[data-btn-select-city-btn]');
+
+    if (btn) {
+        const modalWrapper = document.querySelector('[data-popup-select-city]');
+
+        modalWrapper.classList.add('active');
+        document.querySelector('body').style['overflow'] = 'hidden';
+    }
+})
+document.addEventListener('click', e => {
+    const input = e.target.closest('[data-popup-select-input]');
+
+    if (input) {
+        const modalWrapper = input.closest('[data-popup-select-city]');
+        const allBtnOpen = document.querySelectorAll('[data-btn-select-city-value]');
+
+        allBtnOpen.forEach( btnOpen => {
+            btnOpen.textContent = input.querySelector('input').value;
+        })
+        modalWrapper.classList.remove('active');
+        document.querySelector('body').style['overflow'] = '';
+    }
+})
+document.addEventListener('input', e => {
+    const input = e.target.closest('[data-popup-select-search-input]');
+
+    if (input) {
+        const modalWrapper = input.closest('[data-popup-select-city]');
+        const formItems = modalWrapper.querySelectorAll('[data-popup-select-input]');
+        const reg = new RegExp(`^${input.value.toUpperCase()}`);
+
+        Object.values(formItems).forEach( item => {
+            if (reg.test(item.textContent.toLocaleUpperCase())) {
+                item.style['display'] = 'flex';
+            } else {
+                item.style['display'] = 'none';
+            }
+        })
+    }
+})
+
+
+document.addEventListener('click', e => {
+    const btn = e.target.closest('[data-collapse-item-question]');
+
+    if (btn) {
+        const wrapper = btn.closest('[data-collapse-items-wrapper]');
+        const item = btn.closest('[data-collapse-item]');
+        const allItem = wrapper.querySelectorAll('[data-collapse-item]');
+
+        allItem.forEach(each => {
+            const question = each.querySelector('[data-collapse-item-question]');
+            const answer = each.querySelector('[data-collapse-item-answer]');
+
+            if (item !== each) {
+                question.classList.remove('active');
+                answer.classList.remove('active');
+            } else {
+                question.classList.toggle('active');
+                answer.classList.toggle('active');
+            }
+        })
+    }
+})

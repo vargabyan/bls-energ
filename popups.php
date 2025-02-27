@@ -110,3 +110,46 @@
         <div id="player" class="video"></div>
     </div>
 </section>
+
+
+<?php
+$response_data_cities = [
+    'Екатеринбург',
+    'Нижний Тагил',
+    'Первоуральск',
+    'Полевской',
+    'Серов',
+    'Сысерть',
+    'Тобольск',
+    'Тюмень',
+    'Екатеринбург',
+    'Нижний Тагил',
+    'Первоуральск',
+    'Полевской',
+    'Серов',
+    'Сысерть',
+    'Тобольск',
+    'Тюмень',
+]
+?>
+
+
+<section class="popup-wrapper" data-popup-wrapper data-popup-select-city>
+    <div class="popup-container popup-select active" data-popup-container>
+        <button class="popup_btn-close" data-popup-btn-close></button>
+        <h2 class="popup_header">
+            Выберите <br> свой город
+        </h2>
+        <label class="popup_label-input-search">
+            <input type="text" placeholder="поиск" data-popup-select-search-input>
+        </label>
+        <form class="popup_form-select" action="">
+            <?php foreach ($response_data_cities as $item) { ?>
+                <label class="popup_form-select_label" data-popup-select-input>
+                    <?= $item ?>
+                    <input type="radio" value="<?= $item ?>" name="city">
+                </label>
+            <?php } ?>
+        </form>
+    </div>
+</section>
