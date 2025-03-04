@@ -32,41 +32,58 @@ new Swiper('[data-we-have-swiper]', {
     }
 });
 
+new Swiper('[data-project-swiper]', {
+    spaceBetween: 10,
+    slidesPerView: 1,
+    speed: 1000,
+    navigation: {
+        nextEl: '[data-project-swiper-button-next]',
+        prevEl: '[data-project-swiper-button-prev]',
+    },
+    pagination: {
+        el: '[data-project-swipe-pagination]',
+    }
+});
 
-document.addEventListener('DOMContentLoaded', () => {
-    const sliderBlock = document.querySelectorAll('[data-popup-products-swiper]');
 
-    sliderBlock.forEach((slider, index) => {
+const sliderGallery = new Swiper('[data-popup-products-gallery-swiper]', {
+    speed: 1000,
+    spaceBetween: 10,
+    slidesPerView: 3.9,
+});
 
-        const sliderGallery = new Swiper(document.querySelectorAll('[data-popup-products-gallery-swiper]')[index], {
-            speed: 1000,
-            breakpoints: {
-                320: {
-                    slidesPerView: 10,
-                },
-                1440: {
-                    slidesPerView: 12,
-                },
-            }
-        });
 
-        new Swiper(document.querySelectorAll('[data-popup-products-swiper]')[index], {
-            spaceBetween: 20,
-            slidesPerView: 1,
-            speed: 1000,
-            pagination: {
-                el: document.querySelectorAll('[data-popup-products-swiper-pagination]')[index],
-            },
-            navigation: {
-                nextEl: document.querySelectorAll('[data-popup-products-swiper-button-next]')[index],
-                prevEl: document.querySelectorAll('[data-popup-products-swiper-button-prev]')[index],
-            },
-            thumbs: {
-                swiper: sliderGallery,
-            }
-        });
-    })
-})
+new Swiper('[data-popup-products-swiper]', {
+    spaceBetween: 20,
+    slidesPerView: 1,
+    speed: 1000,
+    pagination: {
+        el: '[data-popup-products-swiper-pagination]',
+    },
+    navigation: {
+        nextEl: '[data-popup-products-swiper-button-next]',
+        prevEl: '[data-popup-products-swiper-button-prev]',
+    },
+    thumbs: {
+        swiper: sliderGallery,
+    }
+});
+
+new Swiper('[data-project-swiper]', {
+    spaceBetween: 20,
+    slidesPerView: 1,
+    speed: 1000,
+    pagination: {
+        el: '[data-project-swiper-pagination]',
+    },
+    navigation: {
+        nextEl: '[data-project-swiper-button-next]',
+        prevEl: '[data-project-swiper-button-prev]',
+    },
+});
+
+
+Fancybox.bind(`[data-fancybox="gallery"]`, {});
 
 
 document.addEventListener('click', e => {
@@ -250,15 +267,6 @@ document.addEventListener('click', e => {
 })
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const popupProductsSliderBlock = document.querySelectorAll('[data-popup-products]');
-
-    popupProductsSliderBlock.forEach((slider, index) => {
-        Fancybox.bind(`[data-fancybox="gallery-${index}"]`, {});
-    })
-})
-
-
 //  youtube vide start
 const tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
@@ -349,5 +357,47 @@ document.addEventListener('click', e => {
                 answer.classList.toggle('active');
             }
         })
+    }
+})
+
+
+document.addEventListener('click', e => {
+    const wrapper = e.target.closest('[data-select-section]');
+    const allWrapper = document.querySelectorAll('.active[data-select-section]');
+
+    if (!wrapper && allWrapper.length) {
+        allWrapper.forEach( _wrapper => {
+            _wrapper.classList.remove('active');
+        })
+    }
+})
+
+document.addEventListener('click', e => {
+    const btn = e.target.closest('[data-select-section-value]');
+
+    if (btn) {
+        const wrapper = btn.closest('[data-select-section]');
+        const selectValue = wrapper.querySelector('[data-select-section-value]');
+        const allWrapper = document.querySelectorAll('.active[data-select-section]');
+
+        allWrapper.forEach( _wrapper => {
+            if (_wrapper !== wrapper) {
+                _wrapper.classList.remove('active');
+            }
+        })
+        selectValue.classList.add('color');
+        wrapper.classList.toggle('active');
+    }
+})
+
+document.addEventListener('click', e => {
+    const selectItem = e.target.closest('[data-select-section-item]');
+
+    if (selectItem) {
+        const wrapper = selectItem.closest('[data-select-section]');
+        const selectValue = wrapper.querySelector('[data-select-section-value]');
+
+        wrapper.classList.remove('active');
+        selectValue.textContent = selectItem.value;
     }
 })
