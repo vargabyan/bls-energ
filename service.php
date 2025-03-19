@@ -1,6 +1,11 @@
 <?php require 'head.php' ?>
 
 <?php
+require 'breadcrumb.php';
+breadcrumb([['url' => '/services.php', 'name' => 'Услуги']]);
+?>
+
+<?php
 $images = [
     '/images/project-img-4-1.png',
     '/images/project-img-4-2.png',
@@ -50,8 +55,8 @@ $images = [
                     <?php } ?>
                 </div>
                 <div class="swiper-pagination" data-popup-products-swiper-pagination></div>
-                <div class="popup-products_slider_btn-prev" data-popup-products-swiper-button-prev></div>
-                <div class="popup-products_slider_btn-next" data-popup-products-swiper-button-next></div>
+                <div class="slider-section_btn-prev btn-slider-white" data-popup-products-swiper-button-prev></div>
+                <div class="slider-section_btn-next btn-slider-white" data-popup-products-swiper-button-next></div>
             </div>
             <div class="popup-products_swiper" data-popup-products-gallery-swiper>
                 <div class="swiper-wrapper">
@@ -86,19 +91,19 @@ $response_data_projects = [
 ]
 ?>
 
-<section class="core-container page-layout">
+<section class="core-container page-layout" data-layout>
     <div class="page-layout_aside">
-        <ul class="aside_menu">
-            <li><a href="">Об услуге</a></li>
-            <li><a href="">Выполненные проекты</a></li>
-            <li><a href="">Официальные дистрибьюторы</a></li>
-            <li><a href="">Как взаимодействуем</a></li>
-            <li><a href="">О компании</a></li>
+        <ul class="aside_menu" data-scroll-element>
+            <li><a href="#about-service">Об услуге</a></li>
+            <li><a href="#project">Выполненные проекты</a></li>
+            <li><a href="#Official-distributors">Официальные дистрибьюторы</a></li>
+            <li><a href="#we-interact">Как взаимодействуем</a></li>
+            <li><a href="#about-company">О компании</a></li>
         </ul>
     </div>
-    <div class="page-layout_container">
+    <div class="page-layout_container" data-layout-content>
         <div class="about-services">
-            <span class="about-services_title site-header">об услуге</span>
+            <span class="about-services_title site-header" id="about-service">об услуге</span>
             <div class="about-services_text">
                 Обеспечение объекта качественным звуком с организацией 5 зон озвучивания, возможность передачи объявлений с ресепшен. Организации двух переговорных комнат с возможностью подключения к удаленным клиентам и проведения видеоконференций.
                 <br>
@@ -112,7 +117,7 @@ $response_data_projects = [
                 <img class="min-consultation_person_img" src="images/consultation-person-img.png" alt="image">
                 <span class="min-consultation_person_name">Нужна консультация?</span>
             </div>
-            <button class="application-consultation_btn-submit btn-blue" type="submit">Оставить заявку</button>
+            <button class="application-consultation_btn-submit btn-blue" type="submit" data-order-popup="order-a-call">Оставить заявку</button>
         </div>
 
         <div class="projects_header-wrapper">
@@ -157,7 +162,7 @@ $response_data_projects = [
         ?>
 
         <div class="official-product-distributors_content">
-            <h2 class="official-product-distributors_header site-header">Официальные представители продукции</h2>
+            <h2 class="official-product-distributors_header site-header" id="Official-distributors">Официальные представители продукции</h2>
             <div class="official-product-distributors_items">
                 <?php foreach ($response_data_official_product_distributors as $key => $item) { ?>
                     <div class="official-product-distributors_item">
@@ -171,7 +176,7 @@ $response_data_projects = [
 
         <div class="we-working">
             <div class="we-working_content">
-                <h2 class="we-working_header site-header">Как взаимодействуем</h2>
+                <h2 class="we-working_header site-header" id="we-interact">Как взаимодействуем</h2>
                 <div class="we-working_description-wrapper">
                     <ul class="we-working_description">
                         <li>Производим оценку потребности клиента</li>
@@ -214,7 +219,7 @@ $response_data_projects = [
 
         <div class="about-content">
             <div class="about_description">
-                <h2 class="about-header site-header">О компании</h2>
+                <h2 class="about-header site-header" id="about-company">О компании</h2>
                 <span class="about_subtitle">
                 Компания «Энерджи Медиа» основана в 2017 г. <br> Опыт специалистов компании с 2010 года
             </span>
@@ -284,8 +289,8 @@ $Response_data_services = [
         <h2 class="site-header">услуги</h2>
         <span class="animation_dot"></span>
         <div class="slider-section_btn-wrapper">
-            <div class="slider-section_btn-prev" data-services-swiper-button-prev></div>
-            <div class="slider-section_btn-next" data-services-swiper-button-next></div>
+            <div class="slider-section_btn-prev btn-slider-white" data-services-swiper-button-prev></div>
+            <div class="slider-section_btn-next btn-slider-white" data-services-swiper-button-next></div>
         </div>
     </div>
     <div class="slider-section">

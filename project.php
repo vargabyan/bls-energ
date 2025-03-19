@@ -1,5 +1,9 @@
 <?php require 'head.php' ?>
 
+<?php
+require 'breadcrumb.php';
+breadcrumb([['url' => '/projects.php', 'name' => 'Проекты'],['url' => '/project', 'name' => 'Креативный кластер «Домна»']]);
+?>
 
 <?php
 $images = [
@@ -27,22 +31,22 @@ $images = [
                 <?php } ?>
             </div>
             <div class="swiper-pagination" data-project-swiper-pagination></div>
-            <div class="popup-products_slider_btn-prev" data-project-swiper-button-prev></div>
-            <div class="popup-products_slider_btn-next" data-project-swiper-button-next></div>
+            <div class="slider-section_btn-prev btn-slider-white" data-project-swiper-button-prev></div>
+            <div class="slider-section_btn-next btn-slider-white" data-project-swiper-button-next></div>
         </div>
     </div>
 </section>
 
-<section class="core-container page-layout project-page">
+<section class="core-container page-layout project-page" data-layout>
     <div class="page-layout_aside">
-        <ul class="aside_menu">
-            <li><a href="">О проекте</a></li>
-            <li><a href="">Цель</a></li>
-            <li><a href="">Задачи</a></li>
+        <ul class="aside_menu" data-scroll-element>
+            <li><a href="#project">О проекте</a></li>
+            <li><a href="#aim">Цель</a></li>
+            <li><a href="#task">Задачи</a></li>
         </ul>
     </div>
-    <div class="page-layout_container">
-        <span class="site-header">О проекте</span>
+    <div class="page-layout_container" data-layout-content>
+        <span class="site-header" id="project">О проекте</span>
         <div class="project-page_tags">
             <a class="project-page_tag" href="">Спортивные объекты</a>
             <a class="project-page_tag" href="">Системы фонового озвучивания</a>
@@ -53,7 +57,7 @@ $images = [
         </div>
         <div class="project-page_text-content">
             <div class="project-page_text_item">
-                <span class="project-page_text_item_title">Цель</span>
+                <span class="project-page_text_item_title" id="aim">Цель</span>
                 Креативный кластер "Домна"
             </div>
             <div class="project-page_text_item">
@@ -64,7 +68,7 @@ $images = [
                 Обеспечение объекта качественным звуком с организацией 5 зон озвучивания, возможность передачи объявлений с ресепшен. Организации двух переговорных комнат с возможностью подключения к удаленным клиентам и проведения видеоконференций.
             </div>
             <div class="project-page_text_item">
-                <span class="project-page_text_item_title">Задачи</span>
+                <span class="project-page_text_item_title" id="task">Задачи</span>
                 Обеспечение объекта качественным звуком с организацией 5 зон озвучивания, возможность передачи объявлений с ресепшен. Организации двух переговорных комнат с возможностью подключения к удаленным клиентам и проведения видеоконференций.
                 <br>
                 <br>
@@ -122,18 +126,18 @@ $response_data_reviews = [
 ]
 ?>
 
-<section class="core-container page-layout block-review">
+<section class="core-container page-layout block-review" data-wrapper-for-type-one-swiper>
     <div class="page-layout_aside">
         <span class="site-block-title">Рекомендации и отзывы</span>
         <div class="slider-section_btn-wrapper">
-            <div class="slider-section_btn-prev" data-services-swiper-button-prev></div>
-            <div class="slider-section_btn-next" data-services-swiper-button-next></div>
+            <div class="slider-section_btn-prev btn-slider-white" data-type-one-swiper-button-prev></div>
+            <div class="slider-section_btn-next btn-slider-white" data-type-one-swiper-button-next></div>
         </div>
     </div>
     <div class="page-layout_container">
         <span class="site-header">Рекомендации и отзывы</span>
         <div class="slider-section">
-            <div class="slider-section_swiper" data-services-swiper>
+            <div class="slider-section_swiper" data-type-one-swiper>
                 <div class="swiper-wrapper">
                     <?php foreach ($response_data_reviews as $item) { ?>
                         <div class="swiper-slide">
@@ -151,7 +155,7 @@ $response_data_reviews = [
                     <?php } ?>
                 </div>
             </div>
-            <div class="swiper-pagination" data-services-swipe-pagination></div>
+            <div class="swiper-pagination" data-type-one-swipe-pagination></div>
         </div>
     </div>
 </section>
@@ -186,18 +190,18 @@ $response_data_projects = [
 ]
 ?>
 
-<section class="core-container page-layout block-projects">
+<section class="core-container page-layout block-projects" data-wrapper-for-type-one-swiper>
     <div class="page-layout_aside">
         <span class="site-block-title">Другие проекты</span>
         <div class="slider-section_btn-wrapper">
-            <div class="slider-section_btn-prev" data-services-swiper-button-prev></div>
-            <div class="slider-section_btn-next" data-services-swiper-button-next></div>
+            <div class="slider-section_btn-prev btn-slider-white" data-type-one-swiper-button-prev></div>
+            <div class="slider-section_btn-next btn-slider-white" data-type-one-swiper-button-next></div>
         </div>
     </div>
     <div class="page-layout_container">
         <span class="site-header">Выполненные проекты</span>
         <div class="slider-section">
-            <div class="slider-section_swiper" data-services-swiper>
+            <div class="slider-section_swiper" data-type-one-swiper>
                 <div class="swiper-wrapper">
                     <?php foreach ($response_data_projects as $item) { ?>
                         <div class="swiper-slide">
@@ -220,7 +224,7 @@ $response_data_projects = [
                     <?php } ?>
                 </div>
             </div>
-            <div class="swiper-pagination" data-services-swipe-pagination></div>
+            <div class="swiper-pagination" data-type-one-swipe-pagination></div>
         </div>
     </div>
 </section>
@@ -232,7 +236,7 @@ $response_data_projects = [
             <img class="min-consultation_person_img" src="images/consultation-person-img.png" alt="image">
             <span class="min-consultation_person_name">Нужна консультация?</span>
         </div>
-        <button class="application-consultation_btn-submit btn-blue" type="submit">Оставить заявку</button>
+        <button class="application-consultation_btn-submit btn-blue" type="submit" data-order-popup="order-a-call">Оставить заявку</button>
     </div>
 </section>
 

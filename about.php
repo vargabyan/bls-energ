@@ -1,5 +1,9 @@
 <?php require 'head.php' ?>
 
+<?php
+require 'breadcrumb.php';
+breadcrumb([['url' => '/about.php', 'name' => 'О компании']]);
+?>
 
 <section class="core-container about-page">
     <div class="about-content">

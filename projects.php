@@ -1,6 +1,11 @@
 <?php require 'head.php' ?>
 
 <?php
+require 'breadcrumb.php';
+breadcrumb([['url' => '/projects.php', 'name' => 'Проекты']]);
+?>
+
+<?php
 $response_data_projects = [
     [
         'title' => 'Академия единоборств РМК',
@@ -283,9 +288,9 @@ Native Instruments. Работа с видео контентом произво
     </div>
 </section>
 
-<section class="core-container page-layout page-projects">
+<section class="core-container page-layout page-projects" data-layout>
     <div class="page-layout_container">
-        <div class="projects_header-wrapper">
+        <div class="projects_header-wrapper" data-layout-content>
             <div class="projects_items-wrapper">
                 <?php foreach ($response_data_projects as $item) { ?>
                     <div class="projects_item">
@@ -327,12 +332,12 @@ Native Instruments. Работа с видео контентом произво
         </section>
     </div>
     <div class="page-layout_aside">
-        <div class="min-consultation for-aside">
+        <div class="min-consultation for-aside" data-scroll-element>
             <div class="min-consultation_person">
                 <img class="min-consultation_person_img" src="images/consultation-person-img.png" alt="image">
                 <span class="min-consultation_person_name">Нужна консультация?</span>
             </div>
-            <button class="application-consultation_btn-submit btn-blue" type="submit">Оставить заявку</button>
+            <button class="application-consultation_btn-submit btn-blue" type="submit" data-order-popup="order-a-call">Оставить заявку</button>
         </div>
     </div>
 </section>

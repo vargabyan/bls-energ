@@ -128,8 +128,8 @@ $Response_data_services = [
                 <h2 class="services-and-product_header site-header">услуги</h2>
                 <span class="animation_dot"></span>
                 <div class="slider-section_btn-wrapper">
-                    <div class="slider-section_btn-prev" data-services-swiper-button-prev></div>
-                    <div class="slider-section_btn-next" data-services-swiper-button-next></div>
+                    <div class="slider-section_btn-prev btn-slider-dark" data-services-swiper-button-prev></div>
+                    <div class="slider-section_btn-next btn-slider-dark" data-services-swiper-button-next></div>
                 </div>
             </div>
         </div>

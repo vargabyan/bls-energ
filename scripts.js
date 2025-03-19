@@ -20,6 +20,34 @@ new Swiper('[data-services-swiper]', {
     }
 });
 
+document.querySelectorAll('[data-wrapper-for-type-one-swiper]').forEach(eachSlider => {
+    new Swiper(eachSlider.querySelector('[data-type-one-swiper]'), {
+        spaceBetween: 24,
+        speed: 1000,
+        navigation: {
+            nextEl: eachSlider.querySelector('[data-type-one-swiper-button-next]'),
+            prevEl: eachSlider.querySelector('[data-type-one-swiper-button-prev]'),
+        },
+        pagination: {
+            el: eachSlider.querySelector('[data-type-one-swipe-pagination]'),
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 1.05,
+                spaceBetween: 8,
+            },
+            992: {
+                slidesPerView: 1.2,
+                spaceBetween: 24,
+            },
+            1200: {
+                slidesPerView: 2,
+                spaceBetween: 24,
+            },
+        }
+    });
+})
+
 new Swiper('[data-we-have-swiper]', {
     slidesPerGroup: 2,
     spaceBetween: 24,
@@ -29,19 +57,6 @@ new Swiper('[data-we-have-swiper]', {
             slidesPerView: 2.2,
             spaceBetween: 24,
         },
-    }
-});
-
-new Swiper('[data-project-swiper]', {
-    spaceBetween: 10,
-    slidesPerView: 1,
-    speed: 1000,
-    navigation: {
-        nextEl: '[data-project-swiper-button-next]',
-        prevEl: '[data-project-swiper-button-prev]',
-    },
-    pagination: {
-        el: '[data-project-swipe-pagination]',
     }
 });
 
@@ -130,7 +145,7 @@ document.addEventListener('click', e => {
 document.addEventListener('click', e => {
     const wrapper = e.target.closest('.active[data-popup-wrapper]');
 
-    if (wrapper) {
+    if (e.target === wrapper) {
         const container = wrapper.querySelector('.active[data-popup-container]');
         const successContainer = wrapper.querySelector('.active[data-success-container]');
 
@@ -324,15 +339,23 @@ document.addEventListener('input', e => {
     if (input) {
         const modalWrapper = input.closest('[data-popup-select-city]');
         const formItems = modalWrapper.querySelectorAll('[data-popup-select-input]');
-        const reg = new RegExp(`^${input.value.toUpperCase()}`);
+        const reg = new RegExp(`^${input.value.trim().toUpperCase()}`);
+        const notFound = modalWrapper.querySelector('[data-popup-search-not-found]');
 
         Object.values(formItems).forEach( item => {
-            if (reg.test(item.textContent.toLocaleUpperCase())) {
+            if (reg.test(item.textContent.trim().toUpperCase())) {
                 item.style['display'] = 'flex';
             } else {
                 item.style['display'] = 'none';
             }
         })
+
+        const hasText = Object.values(formItems).some(item => reg.test(item.textContent.trim().toUpperCase()))
+        if (!hasText) {
+            notFound.classList.add('active');
+        } else {
+            notFound.classList.remove('active');
+        }
     }
 })
 
@@ -362,42 +385,49 @@ document.addEventListener('click', e => {
 
 
 document.addEventListener('click', e => {
-    const wrapper = e.target.closest('[data-select-section]');
-    const allWrapper = document.querySelectorAll('.active[data-select-section]');
-
-    if (!wrapper && allWrapper.length) {
-        allWrapper.forEach( _wrapper => {
-            _wrapper.classList.remove('active');
-        })
-    }
-})
-
-document.addEventListener('click', e => {
-    const btn = e.target.closest('[data-select-section-value]');
+    const btn = e.target.closest('[data-ask-city-btn-yes]');
 
     if (btn) {
-        const wrapper = btn.closest('[data-select-section]');
-        const selectValue = wrapper.querySelector('[data-select-section-value]');
-        const allWrapper = document.querySelectorAll('.active[data-select-section]');
+        const wrapper = btn.closest('[data-ask-city]');
 
-        allWrapper.forEach( _wrapper => {
-            if (_wrapper !== wrapper) {
-                _wrapper.classList.remove('active');
-            }
-        })
-        selectValue.classList.add('color');
-        wrapper.classList.toggle('active');
+        wrapper.classList.remove('active');
+        document.querySelector('body').style['overflow'] = '';
     }
 })
 
 document.addEventListener('click', e => {
-    const selectItem = e.target.closest('[data-select-section-item]');
+    const btn = e.target.closest('[data-ask-city-btn-no]');
 
-    if (selectItem) {
-        const wrapper = selectItem.closest('[data-select-section]');
-        const selectValue = wrapper.querySelector('[data-select-section-value]');
+    if (btn) {
+        const selectCity = document.querySelector('[data-popup-select-city]');
+        const askCity = btn.closest('[data-ask-city]');
 
-        wrapper.classList.remove('active');
-        selectValue.textContent = selectItem.value;
+        askCity.classList.remove('active');
+        selectCity.classList.add('active');
+        document.querySelector('body').style['overflow'] = '';
+    }
+})
+
+
+document.addEventListener('scroll', () => {
+    const scrollElement = document.querySelector('[data-scroll-element]');
+
+    if (scrollElement && window.innerWidth > 992) {
+        const layout = scrollElement.closest('[data-layout]');
+        const layoutContent = layout.querySelector('[data-layout-content]');
+        const locationLayoutContent = layoutContent.getBoundingClientRect()
+        const offsetScreenOfTop = 30;
+
+        layoutContent.style['height'] = 'max-content';
+
+        if (locationLayoutContent.top <= 0 && (Math.round(locationLayoutContent.bottom) - scrollElement.offsetHeight) >= 0) {
+            scrollElement.style['marginTop'] = `${(window.scrollY - layout.offsetTop) + offsetScreenOfTop}px`;
+
+        } else if (Math.round(locationLayoutContent.bottom) - scrollElement.offsetHeight <= 0) {
+            scrollElement.style['marginTop'] = `${locationLayoutContent.height - scrollElement.offsetHeight}px`;
+
+        } else {
+            scrollElement.style['marginTop'] = '0';
+        }
     }
 })

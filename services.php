@@ -1,5 +1,10 @@
 <?php require 'head.php' ?>
 
+<?php
+require 'breadcrumb.php';
+breadcrumb([['url' => '/services.php', 'name' => 'Услуги'],['url' => '/service', 'name' => 'Комплектация объектов под ключ']]);
+?>
+
 <section class="core-container services-page">
     <h1 class="site-header">Услуги</h1>
     <div class="services-page_tags-wrapper">

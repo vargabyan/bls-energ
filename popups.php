@@ -130,15 +130,19 @@ $response_data_cities = [
     'Сысерть',
     'Тобольск',
     'Тюмень',
+    'Серов',
+    'Сысерть',
+    'Тобольск',
+    'Тюмень',
 ]
 ?>
 
 
 <section class="popup-wrapper" data-popup-wrapper data-popup-select-city>
-    <div class="popup-container popup-select active" data-popup-container>
+    <div class="popup-container popup-select-city active" data-popup-container>
         <button class="popup_btn-close" data-popup-btn-close></button>
         <h2 class="popup_header">
-            Выберите <br> свой город
+            Найдите свой город:
         </h2>
         <label class="popup_label-input-search">
             <input type="text" placeholder="поиск" data-popup-select-search-input>
@@ -150,6 +154,22 @@ $response_data_cities = [
                     <input type="radio" value="<?= $item ?>" name="city">
                 </label>
             <?php } ?>
+            <span class="popup_search_not-found" data-popup-search-not-found>не найдено</span>
         </form>
+    </div>
+</section>
+
+
+<section class="popup-wrapper active" data-popup-wrapper data-ask-city>
+    <div class="popup-container popup-ask-city active" data-popup-container>
+        <button class="popup_btn-close" data-popup-btn-close></button>
+        <div class="popup_header">
+            Ваш город:
+            <span>Екатеринбург?</span>
+        </div>
+        <div class="popup-ask-city_btn-wrapper">
+            <button class="popup-ask-city_btn btn-white" data-ask-city-btn-no>Нет</button>
+            <button class="popup-ask-city_btn btn-dark" data-ask-city-btn-yes>Да</button>
+        </div>
     </div>
 </section>

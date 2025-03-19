@@ -1,6 +1,11 @@
 <?php require 'head.php' ?>
 
-<section class="core-container contacts">
+<?php
+require 'breadcrumb.php';
+breadcrumb([['url' => '/contacts.php', 'name' => 'Контакты']]);
+?>
+
+<section class="core-container contacts page-contacts">
     <p class="site-block-title" id="contacts">Контакты</p>
     <div class="contacts_content">
         <div class="contacts_data-wrapper">
